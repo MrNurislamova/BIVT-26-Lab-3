@@ -104,42 +104,39 @@ namespace Lab3
         }
         public (int power, int agility, int intellect) Task5(int power, int agility, int intellect, int number)
         {
-            if (number == 1) 
-            { 
-                power += 10; 
-                intellect -= 5; 
+            switch (number)
+            {
+                case 1 or 3:
+                    power += 10;
+                    intellect -= 5;
+                    if (intellect < 0)
+                        intellect = 0;
+                    break;
+                case 2:
+                    agility += 5;
+                    power -= 5;
+                    intellect -= 5;
+                    if (power < 0)
+                        power = 0;
+                    if (intellect < 0)
+                        intellect = 0;
+                    break;
+                case 4:
+                    agility += 15;
+                    power -= 10;
+                    intellect -= 10;
+                    if (power < 0)
+                        power = 0;
+                    if (intellect < 0)
+                        intellect = 0;
+                    break;
+                case 5:
+                    intellect += 7;
+                    power -= 5;
+                    if (power < 0)
+                        power = 0;
+                    break; 
             }
-            if (number == 2) 
-            { 
-                power -= 5; 
-                agility += 5; 
-                intellect -= 5; 
-            }
-            if (number == 3) 
-            { 
-                power += 10;
-                intellect -= 5; 
-            }
-            if (number == 4) 
-            { power -= 10; 
-                intellect -= 10; 
-                agility += 15; 
-            }
-            if (number == 5) 
-            { 
-                power -= 5; 
-                intellect += 7; 
-            }
-
-
-            if (power < 0) 
-                power = 0;
-            if (agility < 0) 
-                agility = 0;
-            if (intellect < 0) 
-                intellect = 0;
-
-            return (power, agility, intellect);
         }
     }
 }
