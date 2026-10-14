@@ -79,10 +79,9 @@ namespace Lab3
         }
         public (int tasks, int serias) Task4(int time, int tasks)
         {
-            int serias = 0;
 
-            // code here
             int taskTime = 10;
+            int serias = 0;
 
             while (time < 1440)
             {
@@ -99,59 +98,48 @@ namespace Lab3
                     serias++;
                 }
             }
-                // end
 
-                return (tasks, serias);
+
+            return (tasks, serias);
         }
         public (int power, int agility, int intellect) Task5(int power, int agility, int intellect, int number)
         {
-
-            // code here
-            switch (number)
-            {
-                case 1:
-                    power += 10;
-                    intellect -= 5;
-                    break;
-                case 2:
-                    power -= 5;
-                    intellect -= 5;
-                    agility += 5;
-                    break;
-                case 3:
-                    power += 10;
-                    intellect -= 5;
-                    break;
-                case 4:
-                    agility += 15;
-                    intellect -= 10;
-                    power -= 10;
-                    break;
-                case 5:
-                    intellect += 7;
-                    power -= 5;
-                    break;
+            if (number == 1) 
+            { 
+                power += 10; 
+                intellect -= 5; 
+            }
+            if (number == 2) 
+            { 
+                power -= 5; 
+                agility += 5; 
+                intellect -= 5; 
+            }
+            if (number == 3) 
+            { 
+                power += 10;
+                intellect -= 5; 
+            }
+            if (number == 4) 
+            { power -= 10; 
+                intellect -= 10; 
+                agility += 15; 
+            }
+            if (number == 5) 
+            { 
+                power -= 5; 
+                intellect += 7; 
             }
 
-            if (power < 0)
-            {
+
+            if (power < 0) 
                 power = 0;
-            }
-
-            if (intellect < 0)
-            {
-                intellect = 0;
-            }
-
-            if (agility < 0)
-            {
+            if (agility < 0) 
                 agility = 0;
-            }
-
-            // end
+            if (intellect < 0) 
+                intellect = 0;
 
             return (power, agility, intellect);
         }
     }
 }
-git add --all
