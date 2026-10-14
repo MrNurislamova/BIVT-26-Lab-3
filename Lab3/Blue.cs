@@ -9,96 +9,99 @@ namespace Lab3
             double milk = 0;
 
             // code here
-            double v;
-
-            while (n != 0)
+            int z = 0;
+            for (int i = 0; i < n; i++)
             {
-                v = double.Parse(Console.ReadLine());
-                if (v < norma)
-                {
-                    milk += glass / 1000.0;
-                }
-                n--;
+                double a = double.Parse(Console.ReadLine());
+                if (a < norma)
+                    z++;
             }
-                // end
+            milk = (z * glass) / 1000.0;
+            // end
 
-                return milk;
+            return milk;
         }
         public (int first, int second, int third, int fourth) Task2(int n)
         {
             int first = 0, second = 0, third = 0, fourth = 0;
 
             // code here
-            while (n != 0)
+            for (int i = 0; i < n; i++)
             {
                 double x = double.Parse(Console.ReadLine());
                 double y = double.Parse(Console.ReadLine());
-                if (x > 0 && y > 0)
+                switch (x, y)
                 {
-                    first++;
-                }
-                if (x < 0 && y > 0)
-                {
-                    second++;
-                }
-                if (x < 0 && y < 0)
-                {
-                    third++;
-                }
-                if (x > 0 && y < 0)
-                {
-                    fourth++;
+                    case ( > 0, > 0):
+                        first++;
+                        break;
+                    case ( < 0, > 0):
+                        second++;
+                        break;
+                    case ( < 0, < 0):
+                        third++;
+                        break;
+                    case ( > 0, < 0):
+                        fourth++;
+                        break;
+                    default:
+                        break;
                 }
 
-                n--;
             }
-                // end
 
-                return (first, second, third, fourth);
+            // end
+
+            return (first, second, third, fourth);
         }
         public int Task3(int n)
         {
             int count = 0;
 
             // code here
-            while (n != 0)
+            for (int i = 0; i < n; i++)
             {
-                int q = int.Parse(Console.ReadLine());
-                int w = int.Parse(Console.ReadLine());
-                int e = int.Parse(Console.ReadLine());
-                int r = int.Parse(Console.ReadLine());
-                if (q == 2 || w == 2 || e == 2 || r == 2 || q == 3 || w == 3 || e == 3 || r == 3)
+                int a1 = int.Parse(Console.ReadLine());
+                int a2 = int.Parse(Console.ReadLine());
+                int a3 = int.Parse(Console.ReadLine());
+                int a4 = int.Parse(Console.ReadLine());
+                switch (a1, a2, a3, a4)
                 {
-                    count--;
+                    case ( > 3, > 3, > 3, > 3):
+                        count++;
+                        break;
+                    default:
+                        break;
                 }
-                n--;
             }
-                // end
+           
 
-                return count;
+            return count;
         }
         public (int tasks, int serias) Task4(int time, int tasks)
         {
 
-            int taskTime = 10;
             int serias = 0;
 
+            // code here
+            int tasktime = 10;
+            int seriastime = 0;
             while (time < 1440)
             {
                 if (tasks > 0)
                 {
-                    time += taskTime;
-                    taskTime += 5;
+                    time += tasktime;
+                    tasktime += 5;
                     tasks--;
                 }
                 else
                 {
-                    int seriasTime = int.Parse(Console.ReadLine());
-                    time += seriasTime;
+                    int a = int.Parse(Console.ReadLine());
+                    time += seriastime;
                     serias++;
                 }
             }
-
+            // end
 
             return (tasks, serias);
         }
@@ -137,6 +140,7 @@ namespace Lab3
                         power = 0;
                     break; 
             }
+            return (power, agility, intellect);
         }
     }
 }
